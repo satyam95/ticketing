@@ -25,7 +25,7 @@ export function BackButton({ title, variant, className, ...props }: Props) {
       variant={variant}
       className={className}
       onClick={() => router.back()}
-      title={title}
+      title={title} {...props}
     >
       {title}
     </Button>

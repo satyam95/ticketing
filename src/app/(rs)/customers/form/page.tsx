@@ -4,7 +4,7 @@ import * as Sentry from "@sentry/nextjs";
 import CustomerForm from "./CustomerForm";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
-export async function geneateMetadata({
+export async function generateMetadata({
   searchParams,
 }: {
   searchParams: Promise<{ [key: string]: string | undefined }>;
