@@ -1,7 +1,24 @@
-export const metadata = {
-    title: "Customers",
-}
+import { getCustomerSearchResults } from "@/lib/queries/getCustomerSearchResults";
+import CustomerSearch from "./CustomerSearch";
 
-export default function Customer() {
-    return <h2>Customer Page</h2>
+export const metadata = {
+  title: "Customer Search",
+};
+
+export default async function Customer({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | undefined }>;
+}) {
+  const { searchText } = await searchParams;
+  if (!searchText) return <CustomerSearch />;
+
+  const results = await getCustomerSearchResults(searchText);
+
+  return (
+    <>
+      <CustomerSearch />
+      <p>{JSON.stringify(results)}</p>
+    </>
+  );
 }
