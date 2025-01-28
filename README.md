@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ticketing Application for Computer Repair Shop
+
+This ticketing application is designed to streamline ticket management for computer repair shops. Managers can create tickets, assign them to technicians, and track their progress, while technicians can view and manage their assigned tickets with ease.
+
+## Features
+
+- **Manager Panel:** Create and assign tickets to technicians.
+- **Technician Panel:** View and update assigned tickets.
+- **Authentication:** Secure access with Kinde.
+- **Form Handling:** Robust validation with React Hook Form and Zod.
+- **Monitoring:** Real-time error tracking using Sentry.
+- **Responsive Design:** Styled with TailwindCSS and Shadcn UI for a seamless experience on all devices.
+
+## Tech Stack
+
+- **Frontend:** Next.js
+- **Backend:** PostgreSQL (via NeonDB)
+- **Styling:** TailwindCSS, Shadcn UI
+- **Authentication:** Kinde
+- **Form Validation:** React Hook Form, Zod
+- **Monitoring:** Sentry
+
 
 ## Getting Started
 
-First, run the development server:
+Follow the steps below to set up and run the application locally.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ensure you have the following installed:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Node.js (v18 or later)
+- PostgreSQL
+- Git
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Installation
 
-## Learn More
+1. Clone the repository:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com/satyam95/ticketing
+   cd ticketing-app
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. Set up environment variables:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   Create a `.env.local` file in the root directory and add the following:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```env
+   - `SENTRY_AUTH_TOKEN`
+   - `SENTRY_DSN_URL`
+   - `KINDE_CLIENT_ID`
+   - `KINDE_CLIENT_SECRET`
+   - `KINDE_ISSUER_URL`
+   - `KINDE_SITE_URL`
+   - `KINDE_POST_LOGOUT_REDIRECT_URL`
+   - `KINDE_POST_LOGIN_REDIRECT_URL`
+   - `DATABASE_URL`
+   - `KINDE_DOMAIN`
+   - `KINDE_MANAGEMENT_CLIENT_ID`
+   - `KINDE_MANAGEMENT_CLIENT_SECRET`
+   ```
+
+4. Run database migrations with Drizzle:
+
+   ```bash
+   npx drizzle migrate
+   ```
+
+5. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
